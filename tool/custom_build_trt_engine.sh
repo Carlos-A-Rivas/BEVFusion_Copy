@@ -11,6 +11,7 @@
 #
 # The above copyright notice and this permission notice shall be included in
 # all copies or substantial portions of the Software.
+# Helper script for building engines with the custom dataset
 #
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -113,7 +114,7 @@ function compile_trt_model(){
 }
 
 # maybe int8 / fp16
-compile_trt_model "camera.backbone" "$trtexec_dynamic_flags" 2 2
+compile_trt_model "camera.backbone" "$trtexec_dynamic_flags" 1 1
 compile_trt_model "fuser" "$trtexec_dynamic_flags" 2 1
 
 # fp16 only
