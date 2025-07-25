@@ -101,12 +101,26 @@ target_link_libraries(bevfusion_core
 
 
 ####################### bevfusion program #############################
-cuda_add_executable(bevfusion 
+cuda_add_executable(bevfusion
   src/main.cpp
   ${VISUALIZE_FILES}
 )
 
 target_link_libraries(bevfusion
+  bevfusion_core
+  libnvinfer.so
+  libspconv.so
+  ${Protobuf_LIBRARIES}
+  libnvinfer_plugin.so
+)
+
+####################### custom_bevfusion program #############################
+cuda_add_executable(custom_bevfusion
+  src/custom_main.cpp
+  ${VISUALIZE_FILES}
+)
+
+target_link_libraries(custom_bevfusion
   bevfusion_core
   libnvinfer.so
   libspconv.so
